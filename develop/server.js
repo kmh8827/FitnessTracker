@@ -20,7 +20,13 @@ app.listen(PORT, () => {
     console.log(`App running on port ${PORT}!`);
 });
 
-app.get();
+app.get('/workout/exercise', (req, res) => {
+    // display mongoose
+    Exercise.find({}, (err, result) => {
+        if (err) res.send(err)
+        else res.send(result)
+    });
+});
 
 app.post('/workout/exercise', (req, res) {
     //new Excercise = req
