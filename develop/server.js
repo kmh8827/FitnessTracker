@@ -20,7 +20,7 @@ app.listen(PORT, () => {
     console.log(`App running on port ${PORT}!`);
 });
 
-app.get('/workout/exercise', (req, res) => {
+app.get('/api/workout', (req, res) => {
     // display mongoose
     Exercise.find({}, (err, result) => {
         if (err) res.send(err)
@@ -28,7 +28,7 @@ app.get('/workout/exercise', (req, res) => {
     });
 });
 
-app.post('/workout/exercise', (req, res) => {
+app.post('/api/workout', (req, res) => {
     Exercise.insertMany([
         { day: Date().getDate() },
         {
@@ -46,4 +46,3 @@ app.post('/workout/exercise', (req, res) => {
     ]);
     res.send(newExercise);
 });
-
