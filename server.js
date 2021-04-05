@@ -13,9 +13,9 @@ app.use(express.json());
 
 app.use(express.static('public'));
 
-moongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/userdb', { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/userdb', { useNewUrlParser: true });
 
-app.get('/', ({ body}, res) => {
+app.get('/', ({ body }, res) => {
 
 });
 
