@@ -9,6 +9,10 @@ const exerciseSchema = mongoose.Schema({
     weight: {
         type: Number,
         required: true
+    },
+    duration: {
+        type: Number,
+        required: true
     }
 });
 
