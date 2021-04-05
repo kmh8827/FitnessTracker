@@ -29,22 +29,10 @@ app.get('/api/workouts', (req, res) => {
 });
 
 app.post('/api/workouts', (req, res) => {
-    Exercise.insertMany([
-        { day: Date().getDate() },
-        {
-            exercises: [
-                {
-                    type: req.type,
-                    name: req.name,
-                    duration: req.duration,
-                    weight: req.weight,
-                    reps: req.reps,
-                    sets: req.sets
-                }
-            ]
-        }
-    ]);
-    res.send(newExercise);
+    Exercise.deleteMany({}, (err, result) => {
+        if (err) res.send(err)
+        else res.send(result)
+    });
 });
 
 app.post('api/workouts/:id', (req, res) => {
@@ -64,5 +52,8 @@ app.post('api/workouts/:id', (req, res) => {
             ]
 
         }
-    ])
+    ]), (err, result) => {
+        if (err) res.send(err)
+        else res.send(result);
+    }
 });
