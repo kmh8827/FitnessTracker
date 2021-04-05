@@ -29,19 +29,21 @@ app.get('/workout/exercise', (req, res) => {
 });
 
 app.post('/workout/exercise', (req, res) => {
-    const newExercise = await User.create({
-        day: Date().getDate(),
-        exercises: [
-            {
-                type: req.type,
-                name: req.name,
-                duration: req.duration,
-                weight: req.weight,
-                reps: req.reps,
-                sets: req.sets
-            }
-        ]
-    });
+    Exercise.insertMany([
+        { day: Date().getDate() },
+        {
+            exercises: [
+                {
+                    type: req.type,
+                    name: req.name,
+                    duration: req.duration,
+                    weight: req.weight,
+                    reps: req.reps,
+                    sets: req.sets
+                }
+            ]
+        }
+    ]);
     res.send(newExercise);
 });
 
