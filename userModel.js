@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-const cardioSchema = mongoose.Schema({
+const cardioSchema = new Schema({
     name: {
         type: String,
         trim: true,
@@ -12,7 +13,7 @@ const cardioSchema = mongoose.Schema({
     }
 });
 
-const weightSchema = mongoose.mongo.Schema({
+const weightSchema = new Schema({
     name: {
         type: String,
         trim: true,
