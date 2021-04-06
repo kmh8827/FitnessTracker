@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 const PORT = process.env.PORT || 3000;
 
-const Exercise = require('./models.js');
+const Exercise = require('./models/workout.js');
 
 const dbURL = process.env.MONGO_URI ? process.env.MONGO_URI : "mongodb://localhost/workouts";
 
@@ -56,4 +56,11 @@ app.post('api/workouts/:id', (req, res) => {
         if (err) res.send(err)
         else res.send(result);
     }
+});
+
+api.get('/api/workouts/range', (req, res) => {
+    Exercise.find({}, (err, result) => {
+        if (err) res.send(err)
+        else res.send(result);
+    });
 });
