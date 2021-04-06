@@ -58,9 +58,11 @@ app.post('api/workouts/:id', (req, res) => {
     }
 });
 
-api.get('/api/workouts/range', (req, res) => {
-    Exercise.find({}, (err, result) => {
-        if (err) res.send(err)
-        else res.send(result);
-    });
-});
+// api.get('/api/workouts/range', (req, res) => {
+//     Exercise.find({}
+//         .sort({ 'date': -1 })
+//         .limit(7), (err, result) => {
+//         if (err) res.send(err)
+//         else res.send(result);
+//     });
+// });
