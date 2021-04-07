@@ -1,5 +1,5 @@
 let mongoose = require("mongoose");
-let db = require("../develop/models/");
+let db = require("../develop/models");
 
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
