@@ -29,9 +29,8 @@ router.put('api/workouts/:id', (req, res) => {
 });
 
 router.get('/api/workouts/range', (req, res) => {
-    console.log('hi');
     Exercise.find()
-        .sort({ 'date': -1 })
+        .sort({ 'day': -1 })
         .limit(7).then((err, results) => {
             if (err) res.send(err);
             else res.send(results);
